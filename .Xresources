@@ -1,0 +1,11 @@
+! для применения настроек в текущей сессии используйте `xrdb -load ~/.Xresources`
+
+! Настройки отрисовки шрифтов для Cairo и libXft
+Xft.antialias: true         ! Использовать антиалиасинг
+Xft.dpi: 96                 ! Количество точек на дюйм
+Xft.rgba: none              ! unknown, rgb, bgr, vrgb, vbgr, none - геометрия для субпиксельного сглаживания
+Xft.hinting: true           ! Использовать ли хинтинг
+Xft.hintstyle: hintslight   ! Стиль автохинтинга - hintnone hintslight hintmedium hintfull
+
+! включаем отдельные файлы
+# include ".urxvtrc" 
