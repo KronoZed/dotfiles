@@ -1,30 +1,41 @@
-Xft.antialias: true
-Xft.dpi: 96
-Xft.rgba: none
-Xft.hinting: true
-Xft.hintstyle: hintslight
-
+! включить расширения на perl: основные, парсер регулярных выражений (для подсветки URL)
 URxvt.perl-ext-common: default,matcher
 
+! браузер для открытия ссылок
 URxvt.url-launcher: /usr/bin/chromium
+
 URxvt.matcher.button: 2
 URxvt.colorUL: #cacc46
 URxvt.underlineURLs: true
 URxvt.underlineColor: #cacc46
 
+! используемый шрифт
 URxvt.font: xft:Droid sans mono Slashed:pixelsize=22
 URxvt.boldFont: xft:Droid Sans Mono Slashed:bold
 
 URxvt.saveLines: 5000
+
+! геометрия (позиция, размер) окна (в символах). Стандартный размер: 80x24, увеличено для использования табов
 URxvt.geometry: 100x35
+
 URxvt.termName: rxvt-unicode-256color
 
+! Псевдопрозрачность
 URxvt.transparent: true
+
+! уменьшение (-100 .. -1) или увеличение (0 .. 100) яркости прозрачного фона
 URxvt.shading: 10
 
+! скроллбар
 URxvt.scrollBar: false
+
+! стиль скроллбара
 URxvt.scrollstyle: plain
+
+! расположение скроллбара 
 URxvt.scrollBar_right: true
+
+! цвет скроллера
 URxvt.scrollColor: #1A1A1A
 
 URxvt.internalBorder: 10
@@ -38,8 +49,12 @@ URxvt.underLine: off
 URxvt.colorBDMode: on
 URxvt.colorBD:  cyan
 
+! цвет фона
 URxvt.background: #2c2c2c
+
+! цвет переднего плана
 URxvt.foreground: #dcdccc
+
 URxvt.color0: #2c2c2c
 URxvt.color1: #705050
 URxvt.color2: #60b48a
