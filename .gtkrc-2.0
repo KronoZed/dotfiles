@@ -29,7 +29,7 @@ gtk-font-name="terminus 14"                       #
 #gtk-toolbar-style   = GTK_TOOLBAR_ICONS          # Только значки
 #gtk-toolbar-style   = GTK_TOOLBAR_TEXT	          # Только текст
 gtk-toolbar-style    = GTK_TOOLBAR_BOTH	          # Значки и текст
-#gtk-toolbar-style   = GTK_TOOLBAR_BOTH_HORIZ	    # Значки и текст справа от них
+#gtk-toolbar-style   = GTK_TOOLBAR_BOTH_HORIZ	  # Значки и текст справа от них
 
 
 gtk-menu-images=1                                 #
