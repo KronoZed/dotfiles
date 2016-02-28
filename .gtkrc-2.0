@@ -2,14 +2,14 @@
 #      GTK       #
 ##################
 
-gtk-theme-name="Menda"                            # include "/usr/share/themes/Menda/gtk-2.0/gtkrc"
+gtk-theme-name="Numix-Frost"                      # include "/usr/share/themes/"
 
 ##################
 #     ICONS      #
 ##################
 
-gtk-icon-theme-name="Menda-Circle"                #
-gtk-fallback-icon-theme="Menda-Circle"            #
+gtk-icon-theme-name="Faenza"                      #
+gtk-fallback-icon-theme="Faenza"                  #
 
 ##################
 #     FONTS      #
