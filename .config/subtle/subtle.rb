@@ -19,6 +19,9 @@
     screen 1 do
       top     [ :views, :separator, :title, :spacer, :tray, :separator, :clock2 ]
     end
+    screen 2 do
+      top     [ :views, :seperator, :title, :spacer, :clock2 ]
+    end
 
 ## Дополнения
 
@@ -250,7 +253,8 @@
 
     # Scratchpad
 
-    gravity :scratchpad, [ 2, 2, 96, 40 ]
+    gravity :scratchleft,   [ 2, 2, 47, 50 ]
+    gravity :scratchright,  [ 51, 2, 47, 50 ]
 
 ## Захваты
 
@@ -331,12 +335,24 @@
     # Scratchpad
 
     grab "F1" do
-       if (c = Subtlext::Client.first("scratchpad"))
+       if (c = Subtlext::Client.first("scratchleft"))
          c.toggle_stick
          c.focus
          c.raise
          c.toggle_float
-       elsif (c = Subtlext::Client.spawn("urxvt -name scratchpad"))
+       elsif (c = Subtlext::Client.spawn("urxvtc -name scratchleft"))
+         c.tags  = []
+         c.flags = [ :stick ]
+       end
+    end
+
+    grab "F2" do
+       if (c = Subtlext::Client.first("scratchright"))
+         c.toggle_stick
+         c.focus
+         c.raise
+         c.toggle_float
+       elsif (c = Subtlext::Client.spawn("urxvtc -name scratchright"))
          c.tags  = []
          c.flags = [ :stick ]
        end
@@ -351,9 +367,16 @@
 
 ## Метки
 
-    tag "scratchpad" do
-      match   :instance => "scratchpad"
-      gravity :scratchpad
+    tag "scratchleft" do
+      match   :instance => "scratchleft"
+      gravity :scratchleft
+      stick   true
+      urgent  true
+    end
+
+    tag "scratchright" do
+      match   :instance => "scratchright"
+      gravity :scratchright
       stick   true
       urgent  true
     end
@@ -432,7 +455,7 @@
 
     tag "irc_client" do
       match :instance => "hexchat|weechat"
-      gravity :l_b3
+      gravity :c_b2
     end
 
     tag "jabber_client" do
@@ -447,12 +470,17 @@
 
     tag "mail_client" do
       match :class => "claws-mail|geary|thunderbird"
-      gravity :r_b3
+      gravity :c_a3
     end
 
     tag "volume_control" do
       match :instance => "pavucontrol"
       gravity :tl_b1
+    end
+
+    tag "music_player" do
+      match :instance => "ncmpcpp"
+      gravity :r_b1
     end
 
     tag "video_player" do
@@ -501,7 +529,7 @@
 
     # Modes
 #    tag "stick" do
-#      match "mpv"
+#      match "mplayer"
 #      stick true
 #    end
 
@@ -526,7 +554,7 @@
     end
 
 #    tag "resize" do
-#      match "mpv"
+#      match "mplayer"
 #      resize true
 #    end
 
@@ -571,17 +599,17 @@
     end
 
     view "4:chat" do
-      match "irc_client|jabber_client"
+      match "irc_client|jabber_client|telegram_client"
       icon Subtlext::Icon.new("#{iconpath}/mail.xbm")
     end
 
     view "5:mail" do
-      match "mail_client|telegram_client"
+      match "mail_client"
       icon Subtlext::Icon.new("#{iconpath}/mail.xbm")
     end
 
     view "6:media" do
-      match "volume_control|torrent_client|video_player|youtube_browser|media_browser|urt_gtv|media_full|gimp_*"
+      match "volume_control|torrent_client|video_player|youtube_browser|media_browser|music_player|media_full|gimp_*"
       icon Subtlext::Icon.new("#{iconpath}/paint.xbm")
     end
 
@@ -649,6 +677,7 @@
 
     Subtlext::Client.spawn "sleep 5s && urxvtc -name weechat -e weechat"
     Subtlext::Client.spawn "sleep 3s && urxvtc -name poezio -e poezio"
+    Subtlext::Client.spawn "telegram"
 
     # Рабочий стол 5:mail
 
@@ -658,7 +687,7 @@
 
     Subtlext::Client.spawn "sleep 3s && urxvtc -name mpsyt -e mpsyt"
     Subtlext::Client.spawn "pavucontrol"
-    Subtlext::Client.spawn "transmission-remote-gtk"
+    Subtlext::Client.spawn "sleep 2s && urxvtc -name ncmpcpp -e ncmpcpp"
     Subtlext::Client.spawn "sleep 2s && urxvtc -name media-browser -e ranger"
 
     # Рабочий стол 7:fun
